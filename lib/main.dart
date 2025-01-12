@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:giga_pelanggan/module/landing_view.dart';
 
-void main() {
+void main() async {
   runApp(const MainApp());
 }
 

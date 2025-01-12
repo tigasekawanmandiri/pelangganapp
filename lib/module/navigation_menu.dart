@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:giga_pelanggan/module/bantuan/bantuan_view.dart';
 import 'package:giga_pelanggan/module/home/home_view.dart';
+import 'package:giga_pelanggan/module/profile/profile_view.dart';
+import 'package:giga_pelanggan/module/tagihan/tagihan_view.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -35,14 +38,8 @@ class NavigationController extends GetxController {
 
   final screens = [
     const HomeView(),
-    Container(
-      color: Colors.red,
-    ),
-    Container(
-      color: Colors.orange,
-    ),
-    Container(
-      color: Colors.purple,
-    )
+    const TagihanView(),
+    const BantuanView(),
+    const ProfileView(),
   ];
 }
