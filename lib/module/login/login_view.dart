@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:giga_pelanggan/controller/loginController.dart';
 import 'package:giga_pelanggan/global/style.dart';
-// import 'package:giga_pelanggan/module/home/home_view.dart';
-import 'package:giga_pelanggan/module/navigation_menu.dart';
+// import 'package:giga_pelanggan/module/navigation_menu.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -14,6 +14,7 @@ class LoginView extends StatefulWidget {
 class LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
+    LoginController controller = Get.put(LoginController());
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -62,6 +63,7 @@ class LoginViewState extends State<LoginView> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: TextFormField(
+                          controller: controller.username,
                           decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: 'ID Pelanggan '),
@@ -81,6 +83,7 @@ class LoginViewState extends State<LoginView> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: TextFormField(
+                          controller: controller.password,
                           obscureText: true,
                           decoration: const InputDecoration(
                               border: InputBorder.none, hintText: 'Password'),
@@ -94,7 +97,10 @@ class LoginViewState extends State<LoginView> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: GestureDetector(
-                      onTap: () => Get.to(() => const NavigationMenu()),
+                      onTap: () async {
+                        await controller.submit();
+                      },
+                      //  => Get.to(() => const NavigationMenu()),
                       child: Container(
                         decoration: BoxDecoration(
                             color: GColors.textWhite,
