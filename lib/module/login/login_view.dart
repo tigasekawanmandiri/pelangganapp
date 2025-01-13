@@ -12,7 +12,13 @@ class LoginView extends StatefulWidget {
 }
 
 class LoginViewState extends State<LoginView> {
+  var _isObsecure;
   @override
+  void initState() {
+    super.initState();
+    _isObsecure = true;
+  }
+
   Widget build(BuildContext context) {
     LoginController controller = Get.put(LoginController());
     return Scaffold(
@@ -84,9 +90,22 @@ class LoginViewState extends State<LoginView> {
                         padding: const EdgeInsets.only(left: 20.0),
                         child: TextFormField(
                           controller: controller.password,
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                              border: InputBorder.none, hintText: 'Password'),
+                          obscureText: _isObsecure,
+                          decoration: InputDecoration(
+                              suffixIcon: IconButton(
+                                padding:
+                                    const EdgeInsetsDirectional.only(end: 15),
+                                icon: _isObsecure
+                                    ? const Icon(Icons.visibility)
+                                    : const Icon(Icons.visibility_off),
+                                onPressed: () {
+                                  setState(() {
+                                    _isObsecure = !_isObsecure;
+                                  });
+                                },
+                              ),
+                              border: InputBorder.none,
+                              hintText: 'Password'),
                         ),
                       ),
                     ),

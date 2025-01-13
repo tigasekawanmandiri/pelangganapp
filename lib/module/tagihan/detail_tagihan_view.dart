@@ -16,7 +16,10 @@ class _DetailTagihanViewState extends State<DetailTagihanView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detail Tagihan'),
+        title: const Text(
+          'Detail Tagihan',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: GColors.primaryColor,
       ),
       body: getBody(),
@@ -109,27 +112,34 @@ class _DetailTagihanViewState extends State<DetailTagihanView> {
                 const SizedBox(
                   height: 50,
                 ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: GColors.primaryColor,
-                        borderRadius: BorderRadius.circular(5)),
-                    child: const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Center(
-                        child: Text(
-                          'Bayar Tagihan',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
+                if (widget.tagihan.stsTagihan == "menunggu pembayaran")
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: GColors.primaryColor,
+                          borderRadius: BorderRadius.circular(5)),
+                      child: const Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: Center(
+                          child: Text(
+                            'Bayar Tagihan',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
+                if (widget.tagihan.stsTagihan == "sudah dibayar via CS")
+                  const Text("-** LUNAS **-",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 45,
+                          color: Colors.green)),
               ],
             ),
           ),

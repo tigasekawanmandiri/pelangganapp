@@ -1,25 +1,36 @@
 name: giga_pelanggan
 description: "Aplikasi pelanggan gigainternet.id untuk memudahkan pembayaran online."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.4.4 <4.0.0'
+  sdk: ">=3.4.4 <4.0.0"
 
 dependencies:
   dio: ^5.7.0
+  dotenv: ^4.2.0
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.2.1
   flutter_launcher_icons: ^0.14.2
   get: ^4.6.6
   http: ^1.2.2
   intl: ^0.20.1
- 
+  midtrans_sdk: ^0.4.0
+  rename: ^3.0.2
 
 dev_dependencies:
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/1024.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/icons/1024.png"
 
 flutter:
   uses-material-design: true
